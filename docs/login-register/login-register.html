@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login-register.css">
+    <link rel="icon" type="imagen/" sizes="32x32" href="../imagenes/logo.png">
+
+    <title>Bienvenido - Login/Registro</title>
+
+</head>
+<body> 
+    <a href="../index.html">
+    <button class="back-button">← Volver</button>
+    </a>
+    <div class="login-container">
+        <h2>Bienvenido</h2>
+
+        <div class="nav-buttons">
+            <button class="nav-btn inactive" data-form="login">Inicio de sesión</button>
+            <button class="nav-btn active" data-form="register">Registrarse</button>
+        </div>
+
+        <!-- Formulario de Login -->
+        <div id="loginForm" class="form-container">
+            <div class="input-group">
+                <i></i>
+                <input type="email" placeholder="Correo Electrónico" required>
+            </div>
+            <div class="input-group">
+                <i></i>
+                <input type="password" placeholder="Contraseña" required>
+            </div>
+            <button class="action-btn">Inicio de sesión</button>
+            <div class="divider">o</div>
+            <button class="google-btn">
+                <img src="/imagenes/logogoogle.png" alt="Google logo" style="width: 20px; height: 20px;">
+                Iniciar con google
+            </button>
+        </div>
+
+        <!-- Formulario de Registro -->
+        <div id="registerForm" class="form-container active">
+            <div class="input-group">
+                <i></i>
+                <input type="text" placeholder="Nombre Completo">
+            </div>
+            <div class="input-group">
+                <i></i>
+                <input type="email" placeholder="Correo Electrónico">
+            </div>
+            <div class="input-group">
+                <i></i>
+                <input type="password" placeholder="Contraseña">
+            </div>
+            <button class="action-btn">Registrarse</button>
+            <div class="divider">o</div>
+            <button class="google-btn">
+                <img src="/imagenes/logogoogle.png" alt="Google logo" style="width: 20px; height: 20px;">
+                Registrate con google
+            </button>
+        </div>
+    </div>
+    <script src="login-register.js"></script>
+</body>
+</html>
