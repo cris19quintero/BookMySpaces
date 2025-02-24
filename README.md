@@ -1,1 +1,2 @@
-# Archima
+# bookMySpaces
+BoojMySpaces es la plataforma ideal para encontrar y alquilar espacios de trabajo flexibles. Descubre oficinas privadas, coworking y salas de reuniones en tu ciudad con disponibilidad en tiempo real. Reserva de forma rápida y segura, con opciones personalizadas según tus necesidades. Conéctate con espacios inspiradores y mejora tu productividad hoy mismo. ¡Explora y reserva tu próximo lugar de trabajo en BoojMySpaces!
