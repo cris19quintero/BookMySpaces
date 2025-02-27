@@ -246,7 +246,38 @@ h2 {
 }
 
 /* Media Queries for Responsive Design */
+/* Add this to your existing CSS file */
+
+/* Mobile menu toggle button styles */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--dark-gray);
+    border-radius: 3px;
+}
+
+/* Update media queries for responsive design */
 @media (max-width: 992px) {
+    .navbar{
+        height: 10%;
+    }
+    .logo img{
+        width: 80px;
+        height: auto;
+    }
     .main-content {
         margin-left: 0;
         padding-top: 4rem;
@@ -254,6 +285,8 @@ h2 {
     
     .sidebar {
         transform: translateX(-100%);
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
     }
     
     .sidebar.active {
@@ -265,24 +298,19 @@ h2 {
         margin-right: 1rem;
     }
     
-    .search-bar {
-        width: 40%;
-    }
-    
-    .tabs {
-        justify-content: flex-start;
-        overflow-x: auto;
-        padding-bottom: 0.5rem;
+    .navbar-left {
+        display: flex;
+        align-items: center;
     }
 }
-
 @media (max-width: 768px) {
     .navbar {
         padding: 0.5rem;
     }
     
-    .logo {
-        width: 80px;
+    .logo img {
+        width: 120px;
+        height: 4px;
     }
     
     .search-bar {
@@ -290,8 +318,8 @@ h2 {
     }
     
     .nav-icons img {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 2.2rem;
+        height: 2.2rem;
     }
     
     h2 {

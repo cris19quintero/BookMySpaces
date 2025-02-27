@@ -95,3 +95,29 @@ document.addEventListener('DOMContentLoaded', function() {
         updateContent(activeTab.textContent.trim());
     }
 });
+// Add this to your script.js file
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the menu toggle button and sidebar
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    
+    // Add click event to toggle the sidebar
+    menuToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('active');
+    });
+    
+    // Close the sidebar when clicking outside of it (optional)
+    document.addEventListener('click', function(event) {
+        if (!sidebar.contains(event.target) && !menuToggle.contains(event.target)) {
+            sidebar.classList.remove('active');
+        }
+    });
+    
+    // Close sidebar when window is resized to larger size
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 992) {
+            sidebar.classList.remove('active');
+        }
+    });
+});

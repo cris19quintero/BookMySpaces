@@ -10,7 +10,15 @@
 </head>
 <body>
     <nav class="navbar">
-        <img src="imagenes/logo.png" alt="Bookmyspaces" class="logo">
+        <div class="navbar-left">
+            <!-- Add menu toggle button for mobile -->
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <img src="imagenes/logo.png" alt="Bookmyspaces" class="logo">
+        </div>
         <input type="search" placeholder="Buscar" class="search-bar">
         <div class="nav-icons">
             <img src="imagenes/notficacion.png" alt="notificacion" class="notificacion" >
@@ -21,13 +29,14 @@
         </div>
     </nav>
     
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
         <p>Principal</p>
         <a href="about/about..html" class="menu-item">👥 Nosotros</a>
-        <a href="#" class="menu-item">🏢 Alquiler</a>
+        <a href="alquiler/alquiler.html" class="menu-item">🏢 Alquiler</a>
     </aside>
 
     <main class="main-content">
+        <!-- Rest of your content remains the same -->
         <div class="workspace-images">
             <div class="workspace-image">
                 <img src="imagenes/image1.png" alt="Espacio de trabajo 1" id="imagen1">
@@ -53,9 +62,10 @@
                     <p class="space-price">Desde $150 USD</p>
                 </div>
             </div>
-            </div>
         </div>
     </main>
+
+    <!-- Add JavaScript for the mobile menu toggle -->
     <script src="principal/script.js"></script>
 </body>
 </html>
