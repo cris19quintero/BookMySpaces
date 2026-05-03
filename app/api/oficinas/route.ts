@@ -7,7 +7,7 @@ export async function GET() {
     const oficinas = await prisma.oficina.findMany({
       where: { disponible: true },
       include: {
-        reseñas: {
+        resenas: {
           select: { rating: true },
         },
         _count: {
@@ -20,8 +20,8 @@ export async function GET() {
     // Calcular rating promedio
     const oficinasConRating = oficinas.map(o => ({
       ...o,
-      ratingPromedio: o.reseñas.length > 0
-        ? o.reseñas.reduce((acc, r) => acc + r.rating, 0) / o.reseñas.length
+      ratingPromedio: o.resenas.length > 0
+        ? o.resenas.reduce((acc, r) => acc + r.rating, 0) / o.resenas.length
         : null,
       totalReservas: o._count.reservas,
     }));
