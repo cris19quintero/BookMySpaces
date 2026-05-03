@@ -1,0 +1,99 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  reservas  Reserva[]
+  resenas   Resena[]
+
+  @@map("users")
+}
+
+model Oficina {
+  id           String   @id @default(cuid())
+  nombre       String
+  ubicacion    String
+  descripcion  String
+  imagen       String
+  precioMes    Float
+  precioDia    Float
+  badge        String?
+  badgeColor   String?
+  disponible   Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  reservas     Reserva[]
+  resenas      Resena[]
+
+  @@map("oficinas")
+}
+
+model Reserva {
+  id            String        @id @default(cuid())
+  userId        String
+  oficinaId     String
+  tipoAlquiler  TipoAlquiler
+  fechaInicio   DateTime
+  fechaFin      DateTime?
+  total         Float
+  estado        EstadoReserva @default(PENDIENTE)
+  metodoPago    MetodoPago
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  oficina Oficina @relation(fields: [oficinaId], references: [id], onDelete: Cascade)
+
+  @@map("reservas")
+}
+
+model Resena {
+  id        String   @id @default(cuid())
+  userId    String
+  oficinaId String
+  rating    Int      // 1-5
+  comentario String
+  createdAt DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  oficina Oficina @relation(fields: [oficinaId], references: [id], onDelete: Cascade)
+
+  @@map("resenas")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum TipoAlquiler {
+  DIARIO
+  MENSUAL
+}
+
+enum EstadoReserva {
+  PENDIENTE
+  CONFIRMADA
+  CANCELADA
+  COMPLETADA
+}
+
+enum MetodoPago {
+  TARJETA
+  TRANSFERENCIA
+}
